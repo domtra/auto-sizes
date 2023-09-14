@@ -1,0 +1,23 @@
+{
+  "name": "auto-sizes",
+  "version": "0.1.0",
+  "description": "Script to automatically inject the `sizes` attribute for images with `loading=lazy`.",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "run-p build:* build:*:min",
+    "build:full": "esbuild src/index.js --bundle --target=es2015 --outfile=dist/auto-sizes.full.js --define:FEATURES=7",
+    "build:full:min": "esbuild src/index.js --bundle --minify --target=es2015 --outfile=dist/auto-sizes.full.min.js --define:FEATURES=7",
+    "build:basic": "esbuild src/index.js --bundle --target=es2015 --outfile=dist/auto-sizes.basic.js --define:FEATURES=0",
+    "build:basic:min": "esbuild src/index.js --bundle --minify --target=es2015 --outfile=dist/auto-sizes.basic.min.js --define:FEATURES=0",
+    "build:resize": "esbuild src/index.js --bundle --target=es2015 --outfile=dist/auto-sizes.resize.js --define:FEATURES=1",
+    "build:resize:min": "esbuild src/index.js --bundle --minify --target=es2015 --outfile=dist/auto-sizes.resize.min.js --define:FEATURES=1",
+    "build:default": "esbuild src/index.js --bundle --target=es2015 --outfile=dist/auto-sizes.default.js --define:FEATURES=5",
+    "build:default:min": "esbuild src/index.js --bundle --minify --target=es2015 --outfile=dist/auto-sizes.default.min.js --define:FEATURES=5"
+  },
+  "author": "domtra <Dominik Tränklein>",
+  "license": "MIT",
+  "devDependencies": {
+    "esbuild": "^0.19.2",
+    "npm-run-all": "^4.1.5"
+  }
+}
